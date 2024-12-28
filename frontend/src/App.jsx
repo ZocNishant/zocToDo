@@ -14,10 +14,15 @@ const App = () => {
     setTasks([...tasks, newTask]);
   };
 
+  const deleteTask = (id) => {
+    const updatedTask = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTask);
+  };
+
   return (
     <>
       <TaskForm addTask={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </>
   );
 };
